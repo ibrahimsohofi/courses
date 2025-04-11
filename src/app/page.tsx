@@ -16,7 +16,7 @@ export default function Home() {
       category: "Programming",
       rating: 4.8,
       students: 15240,
-      image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=500"
+      image: "/images/courses/web-development.jpg"
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ export default function Home() {
       category: "Data Science",
       rating: 4.7,
       students: 12350,
-      image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=500"
+      image: "/images/courses/python-data-science.jpg"
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ export default function Home() {
       category: "Marketing",
       rating: 4.9,
       students: 8730,
-      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=500"
+      image: "/images/courses/digital-marketing.jpg"
     },
     {
       id: 4,
@@ -52,7 +52,7 @@ export default function Home() {
       category: "Design",
       rating: 4.6,
       students: 6280,
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=500"
+      image: "/images/courses/ux-ui-design.jpg"
     },
   ];
 
@@ -73,21 +73,21 @@ export default function Home() {
       text: "The courses on EduLearn transformed my career. I went from knowing nothing about programming to landing a job as a frontend developer in just 6 months.",
       name: "Alex Thompson",
       position: "Frontend Developer",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150"
+      image: "/images/testimonials/alex.jpg"
     },
     {
       id: 2,
       text: "The quality of instruction is outstanding. The platform is intuitive and the course materials are comprehensive. I've taken courses on other platforms, but EduLearn is by far the best.",
       name: "Miguel Rodriguez",
       position: "Marketing Director",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150"
+      image: "/images/testimonials/miguel.jpg"
     },
     {
       id: 3,
       text: "I was able to acquire new skills while working full-time thanks to the flexibility of EduLearn's platform. The mobile app makes learning on-the-go so convenient.",
       name: "Lisa Wang",
       position: "Product Manager",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=150"
+      image: "/images/testimonials/lisa.jpg"
     },
   ];
 
@@ -131,7 +131,7 @@ export default function Home() {
             </div>
             <div className="relative hidden md:block">
               <Image
-                src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b"
+                src="/images/hero.jpg"
                 alt="Online learning"
                 width={600}
                 height={450}

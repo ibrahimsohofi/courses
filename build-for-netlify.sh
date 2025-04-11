@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Build the Next.js project
+# Build the Next.js project for static export
 bun run build
 
 # Navigate to the out directory

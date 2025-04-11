@@ -14,21 +14,21 @@ export default function AboutPage() {
       name: "John Smith",
       position: "CEO & Founder",
       bio: "John has over 15 years of experience in education technology. He founded EduLearn with a mission to make quality education accessible to everyone.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400"
+      image: "/images/team/ceo.jpg"
     },
     {
       id: 2,
       name: "Sarah Johnson",
       position: "Chief Learning Officer",
       bio: "Sarah is passionate about creating effective learning experiences. With a PhD in Education, she oversees our curriculum development and teaching strategies.",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400"
+      image: "/images/team/clo.jpg"
     },
     {
       id: 3,
       name: "Michael Chen",
       position: "CTO",
       bio: "Michael brings 10+ years of tech leadership experience. He ensures our platform delivers a seamless learning experience with cutting-edge technology.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400"
+      image: "/images/team/cto.jpg"
     },
   ];
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
         </div>
         <div className="relative h-[400px] rounded-lg overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800"
+            src="/images/about-story.jpg"
             alt="Team collaborating"
             fill
             className="object-cover"

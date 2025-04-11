@@ -1,16 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
-
-export const metadata = {
-  title: "All Courses - EduLearn",
-  description: "Browse through our collection of high-quality online courses",
-};
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function CoursesPage() {
   const allCourses = [
@@ -24,7 +18,7 @@ export default function CoursesPage() {
       category: "Programming",
       rating: 4.8,
       students: 15240,
-      image: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=500"
+      image: "/images/courses/web-development.jpg"
     },
     {
       id: 2,
@@ -36,7 +30,7 @@ export default function CoursesPage() {
       category: "Data Science",
       rating: 4.7,
       students: 12350,
-      image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=500"
+      image: "/images/courses/python-data-science.jpg"
     },
     {
       id: 3,
@@ -48,7 +42,7 @@ export default function CoursesPage() {
       category: "Marketing",
       rating: 4.9,
       students: 8730,
-      image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=500"
+      image: "/images/courses/digital-marketing.jpg"
     },
     {
       id: 4,
@@ -60,66 +54,65 @@ export default function CoursesPage() {
       category: "Design",
       rating: 4.6,
       students: 6280,
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=500"
+      image: "/images/courses/ux-ui-design.jpg"
     },
     {
       id: 5,
-      title: "JavaScript Algorithms and Data Structures",
-      description: "Master common algorithms and data structures with JavaScript and improve your problem-solving skills",
-      price: 94.99,
-      instructor: "David Wang",
-      level: "Intermediate",
+      title: "JavaScript Advanced Concepts",
+      description: "Dive deep into advanced JavaScript features like closures, prototypes, and asynchronous patterns",
+      price: 89.99,
+      instructor: "David Wilson",
+      level: "Advanced",
       category: "Programming",
-      rating: 4.8,
-      students: 9450,
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=500"
+      rating: 4.9,
+      students: 7820,
+      image: "/images/courses/javascript-advanced.jpg"
     },
     {
       id: 6,
-      title: "Modern React with Redux",
-      description: "Build powerful, fast, user-friendly and reactive web apps with React and Redux",
-      price: 89.99,
-      instructor: "Jessica Martinez",
+      title: "Mobile App Development with React Native",
+      description: "Build cross-platform mobile apps for iOS and Android with React Native",
+      price: 94.99,
+      instructor: "Jessica Lee",
       level: "Intermediate",
       category: "Programming",
-      rating: 4.9,
-      students: 11280,
-      image: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=500"
+      rating: 4.7,
+      students: 5630,
+      image: "/images/courses/react-native.jpg"
     },
     {
       id: 7,
-      title: "Advanced Excel for Business Analytics",
-      description: "Learn advanced Excel functions, formulas, and data analysis techniques for business intelligence",
-      price: 69.99,
+      title: "Advanced Excel for Business Analysis",
+      description: "Master Excel functions, pivot tables, macros, and data analysis for business insights",
+      price: 59.99,
       instructor: "Robert Johnson",
-      level: "Advanced",
+      level: "Intermediate",
       category: "Business",
-      rating: 4.7,
-      students: 7890,
-      image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?q=80&w=500"
+      rating: 4.8,
+      students: 9240,
+      image: "/images/courses/excel-business.jpg"
     },
     {
       id: 8,
-      title: "Photography Masterclass",
-      description: "Learn photography techniques, composition, lighting, and photo editing with professional photographers",
-      price: 79.99,
-      instructor: "Lisa Williams",
-      level: "All Levels",
-      category: "Photography",
-      rating: 4.8,
-      students: 5640,
-      image: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=500"
+      title: "Content Creation and Video Editing",
+      description: "Learn to create engaging content and edit professional videos for social media",
+      price: 69.99,
+      instructor: "Maria Garcia",
+      level: "Beginner",
+      category: "Marketing",
+      rating: 4.6,
+      students: 4270,
+      image: "/images/courses/content-creation.jpg"
     },
   ];
 
   const categories = [
-    { id: 1, name: "All Categories", count: allCourses.length },
-    { id: 2, name: "Programming", count: 3 },
-    { id: 3, name: "Business", count: 1 },
-    { id: 4, name: "Design", count: 1 },
-    { id: 5, name: "Marketing", count: 1 },
-    { id: 6, name: "Data Science", count: 1 },
-    { id: 7, name: "Photography", count: 1 },
+    { id: 1, name: "All Categories" },
+    { id: 2, name: "Programming" },
+    { id: 3, name: "Business" },
+    { id: 4, name: "Design" },
+    { id: 5, name: "Marketing" },
+    { id: 6, name: "Data Science" },
   ];
 
   const levels = [
@@ -131,145 +124,86 @@ export default function CoursesPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="flex flex-col space-y-2 mb-10">
-        <h1 className="text-4xl font-bold">All Courses</h1>
-        <p className="text-xl text-muted-foreground">
-          Browse through our collection of high-quality online courses
-        </p>
+      <div className="flex flex-col space-y-2 mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold">All Courses</h1>
+        <p className="text-muted-foreground text-lg">Browse our extensive collection of courses to enhance your skills</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Sidebar / Filters */}
-        <div className="space-y-6">
-          <div>
-            <h3 className="font-semibold mb-3">Search</h3>
-            <div className="relative">
-              <Input placeholder="Search courses..." />
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-3">Categories</h3>
-            <div className="space-y-1">
+      {/* Filters */}
+      <div className="flex flex-col md:flex-row gap-4 mb-10 bg-secondary/50 rounded-lg p-6">
+        <div className="flex-1">
+          <Input type="text" placeholder="Search courses..." className="w-full" />
+        </div>
+        <div className="flex gap-4">
+          <Select defaultValue="all-categories">
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Category" />
+            </SelectTrigger>
+            <SelectContent>
               {categories.map((category) => (
-                <div key={category.id} className="flex items-center justify-between">
-                  <Button variant="ghost" className="justify-start px-2 py-1 h-auto w-full text-left">
-                    {category.name}
-                  </Button>
-                  <Badge variant="secondary">{category.count}</Badge>
-                </div>
+                <SelectItem key={category.id} value={category.name.toLowerCase().replace(/\s+/g, '-')}>
+                  {category.name}
+                </SelectItem>
               ))}
-            </div>
-          </div>
-
-          <Separator />
-
-          <div>
-            <h3 className="font-semibold mb-3">Level</h3>
-            <div className="space-y-1">
+            </SelectContent>
+          </Select>
+          <Select defaultValue="all-levels">
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Level" />
+            </SelectTrigger>
+            <SelectContent>
               {levels.map((level) => (
-                <div key={level.id} className="flex items-center">
-                  <Button variant="ghost" className="justify-start px-2 py-1 h-auto text-left">
-                    {level.name}
-                  </Button>
-                </div>
+                <SelectItem key={level.id} value={level.name.toLowerCase().replace(/\s+/g, '-')}>
+                  {level.name}
+                </SelectItem>
               ))}
-            </div>
-          </div>
-
-          <Separator />
-
-          <div>
-            <h3 className="font-semibold mb-3">Price Range</h3>
-            <div className="space-y-1">
-              <Button variant="ghost" className="justify-start px-2 py-1 h-auto w-full text-left">
-                All Prices
-              </Button>
-              <Button variant="ghost" className="justify-start px-2 py-1 h-auto w-full text-left">
-                Free
-              </Button>
-              <Button variant="ghost" className="justify-start px-2 py-1 h-auto w-full text-left">
-                Paid
-              </Button>
-            </div>
-          </div>
+            </SelectContent>
+          </Select>
         </div>
+      </div>
 
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <div className="flex justify-between items-center mb-6">
-            <p className="text-muted-foreground">Showing {allCourses.length} results</p>
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-muted-foreground">Sort by:</span>
-              <Tabs defaultValue="popular">
-                <TabsList>
-                  <TabsTrigger value="popular">Popular</TabsTrigger>
-                  <TabsTrigger value="newest">Newest</TabsTrigger>
-                  <TabsTrigger value="price-low">Price: Low to High</TabsTrigger>
-                  <TabsTrigger value="price-high">Price: High to Low</TabsTrigger>
-                </TabsList>
-              </Tabs>
+      {/* Courses Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {allCourses.map((course) => (
+          <Card key={course.id} className="course-card overflow-hidden">
+            <div className="aspect-video relative overflow-hidden">
+              <Image
+                src={course.image}
+                alt={course.title}
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105"
+              />
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {allCourses.map((course) => (
-              <Card key={course.id} className="course-card overflow-hidden flex flex-col">
-                <div className="aspect-video relative overflow-hidden">
-                  <Image
-                    src={course.image}
-                    alt={course.title}
-                    fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <CardHeader className="p-4">
-                  <div className="flex justify-between items-start">
-                    <Badge variant="secondary" className="mb-2">
-                      {course.category}
-                    </Badge>
-                    <Badge variant="outline">{course.level}</Badge>
-                  </div>
-                  <CardTitle className="text-xl">{course.title}</CardTitle>
-                  <CardDescription className="line-clamp-2">{course.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="p-4 pt-0">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <span className="mr-1">By</span>
-                    <span className="font-medium mr-2 text-foreground">{course.instructor}</span>
-                    <span className="flex items-center">
-                      <span className="text-yellow-500 mr-1">★</span>
-                      {course.rating}
-                    </span>
-                    <span className="mx-2">•</span>
-                    <span>{course.students.toLocaleString()} students</span>
-                  </div>
-                </CardContent>
-                <CardFooter className="p-4 flex justify-between items-center border-t mt-auto">
-                  <div className="font-bold text-lg">${course.price}</div>
-                  <Link href={`/courses/${course.id}`}>
-                    <Button>View Course</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-
-          {/* Pagination */}
-          <div className="flex justify-center mt-8">
-            <div className="flex space-x-2">
-              <Button variant="outline" disabled>
-                Previous
-              </Button>
-              <Button variant="outline" className="bg-primary text-primary-foreground">
-                1
-              </Button>
-              <Button variant="outline">2</Button>
-              <Button variant="outline">3</Button>
-              <Button variant="outline">Next</Button>
-            </div>
-          </div>
-        </div>
+            <CardHeader className="p-4">
+              <div className="flex justify-between items-start">
+                <Badge variant="secondary" className="mb-2">
+                  {course.category}
+                </Badge>
+                <Badge variant="outline">{course.level}</Badge>
+              </div>
+              <CardTitle className="text-xl">{course.title}</CardTitle>
+              <CardDescription className="line-clamp-2">{course.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="p-4 pt-0">
+              <div className="flex items-center text-sm text-muted-foreground">
+                <span className="mr-1">By</span>
+                <span className="font-medium mr-2 text-foreground">{course.instructor}</span>
+                <span className="flex items-center">
+                  <span className="text-yellow-500 mr-1">★</span>
+                  {course.rating}
+                </span>
+                <span className="mx-2">•</span>
+                <span>{course.students.toLocaleString()} students</span>
+              </div>
+            </CardContent>
+            <CardFooter className="p-4 flex justify-between items-center border-t">
+              <div className="font-bold text-lg">${course.price}</div>
+              <Link href={`/courses/${course.id}`}>
+                <Button>View Course</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
     </div>
   );
