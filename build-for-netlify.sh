@@ -7,6 +7,6 @@ bun run build
 cd out
 
 # Create the zip file for deployment
-zip -rFS ../../output.zip .
+zip -rFS ../output.zip .
 
 echo "Build completed and zip created at output.zip"
