@@ -39,6 +39,12 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  webpack: (config) => {
+    return config;
+  },
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 module.exports = nextConfig;
